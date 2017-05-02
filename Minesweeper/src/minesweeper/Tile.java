@@ -16,7 +16,7 @@ public class Tile {
 		this.num = n;
 	}
 	
-	//constructor for before the number is known
+	//constructor for before the number is known defaults the number to zero
 	public Tile(boolean h, boolean m) {
 		this.isHidden = h;
 		this.isMine = m;
@@ -27,6 +27,10 @@ public class Tile {
 	public void show() {
 		this.isHidden = false;
 	}
+	
+	//sets the number representing how many mines are adjacent to a cell
+	public void setNum(int n) 
+	{this.num = n;}
 	
 	//returns if the tile is hidden
 	public boolean isHidden() 
