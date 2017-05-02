@@ -1,3 +1,5 @@
+//Comment some where
+
 package minesweeper;
 
 public class Runner {
