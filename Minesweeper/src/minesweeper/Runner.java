@@ -1,4 +1,4 @@
-//Comment some where
+//Comment some wherem
 
 package minesweeper;
 
