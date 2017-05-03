@@ -35,7 +35,10 @@ public class Mines {
 
 			for(int c = 0;c<20;c++){
 
-				System.out.print(tiles[r][c].getIsMine() + "\t");
+				System.out.print(tiles[r][c].getIsMine() + " ");
+				if (tiles[r][c].getIsMine()) {
+					System.out.print(" ");
+				}
 
 			}
 			System.out.println();
@@ -57,7 +60,7 @@ public class Mines {
 	
 	
 	
-	// Sets off all bombs. Must be refreshed every time a item is clicked 
+	// Sets off all bombs. It is called each time bomb is selected 
 	public void boom(Tile ne){
 		int off = 0;
 		
