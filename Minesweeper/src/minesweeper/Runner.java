@@ -7,6 +7,8 @@ public class Runner {
 	public static void main(String[] args) {
 		
 		Screen scr = new Screen();
+		Mines field = new Mines();
+		field.printMineField();
 			
 	}
 	
