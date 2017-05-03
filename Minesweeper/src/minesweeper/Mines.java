@@ -71,6 +71,8 @@ public class Mines {
 		
 		
 	}
+	// get bombs is done now.
+	
 	//Prints minefield of bomb status 
 	public void printMineField(){
 		for(int r = 0;r<20;r++){
