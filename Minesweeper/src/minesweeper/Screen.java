@@ -112,17 +112,20 @@ public class Screen extends JFrame implements Runnable{
 					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
 					g.setColor(Color.black);
 				//}
-				 if(!item.getIsHidden() && item.getIsMine()){
+					
+					
+					
+			/*added*/	 if(!item.getIsHidden() && item.getIsMine()){
 					 g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
 						g.setColor(Color.white);
 						g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
 					g.setColor(Color.orange);
 				}
-				else if(!item.getIsHidden() && !item.getIsMine()) {
-					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
-					g.setColor(Color.white);
-					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
-					g.setColor(Color.red);
+			/*added*/	else if(!item.getIsHidden() && !item.getIsMine()) {
+				/*added*/		g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+				/*added*/		g.setColor(Color.white);
+				/*added*/			g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+				/*added*/			g.setColor(Color.red);
 				}
 				
 				
@@ -135,10 +138,10 @@ public class Screen extends JFrame implements Runnable{
 		int xbox = (mouseX -18) / 10;
 		int ybox = (mouseY - 34) / 10;
 		repaint();
-		if(xbox > 0 && ybox > 0){
-		g.drawString(xbox + " " + ybox,40,SCREENY - 120);
+		/*added*/	if(xbox > 0 && ybox > 0){
+		/*added*/		g.drawString(xbox + " " + ybox,40,SCREENY - 120);
 		
-		field.tiles[xbox][ybox].show();
+			/*added*/		field.tiles[xbox][ybox].show();
 //		if(field.tiles[ybox][xbox].getIsMine()){
 //			field.boom(field.tiles[ybox][xbox]);
 //			
