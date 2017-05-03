@@ -6,7 +6,7 @@ public class Mines {
 	private Tile[][] tiles;
 	//public Tile(boolean h, boolean m, int n){
 	//0 = open 9 == mine, 1= 1 mine nearby, 2 = 2 mines nearby ...
-//Randomly assigns the tiles in a 2d grid a value of bomb or not.	
+	//Randomly assigns the tiles in a 2d grid a value of bomb or not.	
 	public Mines(){
 		
 		//creates a minesweeper board 20x20
