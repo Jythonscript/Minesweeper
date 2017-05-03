@@ -16,7 +16,7 @@ public class Mines {
 			
 			for(int c = 0;c<20;c++){
 				//Randomly assigns tile as mine or not mine
-				int ran = ((int)(Math.random() * 5 + 1));
+				int ran = ((int)(Math.random() * 4 + 1));
 				if(ran == 1){
 					tiles[r][c] = new Tile(true,false,9);
 				}
@@ -43,4 +43,6 @@ public class Mines {
 
 	
 }
+	
+	
 	}
