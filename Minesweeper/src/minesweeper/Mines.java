@@ -43,33 +43,35 @@ public class Mines {
 
 
 	}
-	public void select(int r, int c){
+	
+	
+	public Tile select(int r, int c){
 		tiles[r][c].show();
-		boom();
+		if(tiles[r][c].getIsMine()){
+			boom(tiles[r][c]);
+		}
+		
+		return tiles[r][c];
 		
 	}
 	
 	
 	
 	// Sets off all bombs. Must be refreshed every time a item is clicked 
-	public void boom(){
+	public void boom(Tile ne){
 		int off = 0;
+		
+		if(ne.getIsMine()){
 		for(int r = 0;r<tiles.length;r++){
 			for(int c = 0;c<tiles.length;c++){
-				boolean get = tiles[r][c].getIsHidden();
-				Tile compare =  tiles[r][c];
-				if(get == false ){
-					r = -1;
-					c = -1;
-					off = 1;
+				if(tiles[r][c].getIsMine()){
+					tiles[r][c].show();
 				}
-				if(off == 1){
-				compare.show();
-				}
+				
 				
 			}
 		}
-		
+		}
 	}
 
 
