@@ -51,7 +51,31 @@ public class Screen extends JFrame implements Runnable{
 			mouseX = e.getX();
 			mouseY = e.getY();
 			
+
 			System.out.println("Mouse X: " + mouseX + " Mouse Y: " + mouseY);
+
+//			System.out.println("Mouse X: " + mouseX + " Mouse Y: " + mouseY);
+			
+			int blockX = (mouseX - 18) / 10;
+			int blockY = (mouseY - 34) / 10;
+			
+			//prevents array index out of bounds
+			if (blockX > field.tiles[0].length) {
+				blockX = field.tiles[0].length - 1;
+			}
+			if (blockY > field.tiles.length) {
+				blockY = field.tiles.length - 1;
+			}
+			if (blockX < 0) {
+				blockX = 0;
+			}
+			if (blockY < 0) {
+				blockY = 0;
+			}
+			
+			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
+			System.out.println("Adjacent blocks: " + field.getBombs(blockX, blockY));
+
 			
 		}
 		
@@ -106,49 +130,62 @@ public class Screen extends JFrame implements Runnable{
 			for (int c = 0; c < this.field.tiles[0].length; c++) {
 				
 				Tile item = this.field.tiles[r][c];
+
 				//if (item.getIsHidden()) {
-					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
-					g.setColor(Color.white);
-					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
-					g.setColor(Color.black);
-				//}
-					
-					
-					
-			/*added*/	 if(!item.getIsHidden() && item.getIsMine()){
-					 g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+
+				g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+				g.setColor(Color.white);
+				g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+				g.setColor(Color.black);
+//				if (item.getIsMine()) {
+//					g.setColor(Color.red);
+//
+//					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+//					g.setColor(Color.black);
+//
+//					//}
+//
+//					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+//				}
+				//else {
+
+
+
+
+					/*added*/	 if(!item.getIsHidden() && item.getIsMine()){
+						g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
 						g.setColor(Color.white);
 						g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
-					g.setColor(Color.orange);
-				}
-			/*added*/	else if(!item.getIsHidden() && !item.getIsMine()) {
-				/*added*/		g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
-				/*added*/		g.setColor(Color.white);
-				/*added*/			g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
-				/*added*/			g.setColor(Color.red);
-				}
-				
-				
+						g.setColor(Color.orange);
+					}
+					/*added*/	else if(!item.getIsHidden() && !item.getIsMine()) {
+						/*added*/		g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+						/*added*/		g.setColor(Color.white);
+						/*added*/			g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+						/*added*/			g.setColor(Color.red);
+					}
+
+
+				//}
+
 			}
-			
-		}
-		
-		g.drawString("Mouse X: " + mouseX + " Mouse Y:" + mouseY, 20, SCREENY - 100);
-		
-		int xbox = (mouseX -18) / 10;
-		int ybox = (mouseY - 34) / 10;
-		repaint();
-		/*added*/	if(xbox > 0 && ybox > 0){
-		/*added*/		g.drawString(xbox + " " + ybox,40,SCREENY - 120);
-		
-			/*added*/		field.tiles[xbox][ybox].show();
-//		if(field.tiles[ybox][xbox].getIsMine()){
-//			field.boom(field.tiles[ybox][xbox]);
-//			
-//		}
-	
-		}
-		
+
+			g.drawString("Mouse X: " + mouseX + " Mouse Y:" + mouseY, 20, SCREENY - 100);
+
+			int xbox = (mouseX -18) / 10;
+			int ybox = (mouseY - 34) / 10;
+			repaint();
+			/*added*/	if(xbox > 0 && ybox > 0){
+				/*added*/		g.drawString(xbox + " " + ybox,40,SCREENY - 120);
+
+				/*added*/		field.tiles[xbox][ybox].show();
+				//		if(field.tiles[ybox][xbox].getIsMine()){
+				//			field.boom(field.tiles[ybox][xbox]);
+				//			
+				//		}
+
+			}}
+
 	}
 	
 	//double buffering
