@@ -18,10 +18,10 @@ public class Mines {
 				//Randomly assigns tile as mine or not mine
 				int ran = ((int)(Math.random() * 4 + 1));
 				if(ran == 1){
-					tiles[r][c] = new Tile(false,false,9);
+					tiles[r][c] = new Tile(true,true,9);
 				}
 				else{
-					tiles[r][c] = new Tile(true,true,0);
+					tiles[r][c] = new Tile(true,false,0);
 				}
 			}
 		}
@@ -95,7 +95,7 @@ public class Mines {
 	
 	
 	public Tile select(int r, int c){
-		tiles[r][c].show();
+		this.tiles[r][c].show();
 		if(tiles[r][c].getIsMine()){
 			boom(tiles[r][c]);
 		}

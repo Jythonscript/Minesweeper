@@ -23,9 +23,7 @@ public class Screen extends JFrame implements Runnable{
 	private final int SCREENX = 800, SCREENY = 500;
 	
 	//mouse x and y variables
-	private int mouseX = 0, mouseY = 0;
-	
-	//block x and y variables
+	private int mouseX, mouseY;
 	
 	//the thread
 	public void run() {
@@ -53,12 +51,7 @@ public class Screen extends JFrame implements Runnable{
 			mouseX = e.getX();
 			mouseY = e.getY();
 			
-//			System.out.println("Mouse X: " + mouseX + " Mouse Y: " + mouseY);
-			
-			int blockX = (mouseX - 18) / 10;
-			int blockY = (mouseY - 34) / 10;
-			
-			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
+			System.out.println("Mouse X: " + mouseX + " Mouse Y: " + mouseY);
 			
 		}
 		
@@ -103,7 +96,6 @@ public class Screen extends JFrame implements Runnable{
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		
 	}
 	
 	//printing stuff to the screen
@@ -114,16 +106,23 @@ public class Screen extends JFrame implements Runnable{
 			for (int c = 0; c < this.field.tiles[0].length; c++) {
 				
 				Tile item = this.field.tiles[r][c];
-				g.setColor(Color.black);
-				if (item.getIsHidden()) {
+				//if (item.getIsHidden()) {
 					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
 					g.setColor(Color.white);
 					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
 					g.setColor(Color.black);
+				//}
+				 if(!item.getIsHidden() && item.getIsMine()){
+					 g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+						g.setColor(Color.white);
+						g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+					g.setColor(Color.orange);
 				}
-				else {
-					
+				else if(!item.getIsHidden() && !item.getIsMine()) {
+					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+					g.setColor(Color.white);
 					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+					g.setColor(Color.red);
 				}
 				
 				
@@ -131,9 +130,21 @@ public class Screen extends JFrame implements Runnable{
 			
 		}
 		
-		g.drawString("Mouse X: " + mouseX + " Mouse Y: " + mouseY, 20, SCREENY - 100);
+		g.drawString("Mouse X: " + mouseX + " Mouse Y:" + mouseY, 20, SCREENY - 100);
 		
+		int xbox = (mouseX -18) / 10;
+		int ybox = (mouseY - 34) / 10;
 		repaint();
+		if(xbox > 0 && ybox > 0){
+		g.drawString(xbox + " " + ybox,40,SCREENY - 120);
+		
+		field.tiles[xbox][ybox].show();
+//		if(field.tiles[ybox][xbox].getIsMine()){
+//			field.boom(field.tiles[ybox][xbox]);
+//			
+//		}
+	
+		}
 		
 	}
 	
