@@ -107,17 +107,23 @@ public class Screen extends JFrame implements Runnable{
 				
 				Tile item = this.field.tiles[r][c];
 				if (item.getIsHidden()) {
-					g.fillRect(100 + r * 10, 100 + c * 10, 10, 10);
+					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+					g.setColor(Color.white);
+					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+					g.setColor(Color.black);
 				}
 				else {
 					
+					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
 				}
-				g.drawRect(100 + r * 10, 100 + c * 10, 10, 10);
 				
 				
 			}
 			
 		}
+		
+		g.drawString("Mouse X: " + mouseX + " Mouse Y:" + mouseY, 20, SCREENY - 100);
+		
 		repaint();
 		
 	}
