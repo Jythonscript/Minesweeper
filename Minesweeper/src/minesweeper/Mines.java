@@ -28,6 +28,20 @@ public class Mines {
 
 
 	}
+
+	// how to format input: a,b =tiles[row][col].
+	// returns int of how many bombs around
+	public int getBombs(int rowa, int cola){
+		int counter=0;
+		for (int row= 0; row<tiles.length; row++){
+			for(int col=0; col<tiles[row].length; col++){
+				if (tiles[row][col].isNextTo(rowa, cola)){
+					
+				}
+			}
+		}
+		return counter;
+	}
 	//Prints minefield of bomb status 
 	public void printMineField(){
 
