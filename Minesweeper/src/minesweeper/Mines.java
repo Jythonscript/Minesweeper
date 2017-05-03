@@ -43,6 +43,26 @@ public class Mines {
 
 
 	}
+	
+	
+	
+	// Sets off all bombs. Must be refreshed every time a item is clicked 
+	public void boom(){
+		int off = 0;
+		for(int r = 0;r<tiles.length;r++){
+			for(int c = 0;c<tiles.length;c++){
+				boolean get = tiles[r][c].getIsHidden();
+				if(get == false){
+					r = -1;
+					c = -1;
+					off = 0;
+				}
+				
+				
+			}
+		}
+		
+	}
 
 
 }
