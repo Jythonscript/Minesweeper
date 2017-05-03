@@ -24,9 +24,8 @@ public class Tile {
 	}
 	
 	//un-hides a tile
-	public void show() {
-		this.isHidden = false;
-	}
+	public void show() 
+	{this.isHidden = false;}
 	
 	//sets the number representing how many mines are adjacent to a cell
 	public void setNum(int n) 
