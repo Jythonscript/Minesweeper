@@ -58,7 +58,22 @@ public class Screen extends JFrame implements Runnable{
 			int blockX = (mouseX - 18) / 10;
 			int blockY = (mouseY - 34) / 10;
 			
+			//prevents array index out of bounds
+			if (blockX > field.tiles[0].length) {
+				blockX = field.tiles[0].length - 1;
+			}
+			if (blockY > field.tiles.length) {
+				blockY = field.tiles.length - 1;
+			}
+			if (blockX < 0) {
+				blockX = 0;
+			}
+			if (blockY < 0) {
+				blockY = 0;
+			}
+			
 			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
+			System.out.println("Adjacent blocks: " + field.getBombs(blockX, blockY));
 			
 		}
 		
@@ -115,11 +130,11 @@ public class Screen extends JFrame implements Runnable{
 				
 				Tile item = this.field.tiles[r][c];
 				g.setColor(Color.black);
-				if (item.getIsHidden()) {
+				if (item.getIsMine()) {
+					g.setColor(Color.red);
 					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
-					g.setColor(Color.white);
-					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
 					g.setColor(Color.black);
+					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
 				}
 				else {
 					

@@ -38,17 +38,17 @@ public class Tile {
 	//returns if the tile is hidden
 	public boolean getIsHidden() {
 		return this.isHidden;
-		}
+	}
 	
 	//returns if the tile is a mine
 	public boolean getIsMine() {
 		return this.isMine;
-		}
+	}
 	
 	//returns the number on the tile
 	public int getIsNum() {
 		return this.num;
-		}
+	}
 	// returns true if the tile is a neighbor
 	
 }
