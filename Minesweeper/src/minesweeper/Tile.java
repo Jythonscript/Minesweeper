@@ -50,9 +50,5 @@ public class Tile {
 		return this.num;
 		}
 	// returns true if the tile is a neighbor
-	public boolean isNextTo(int a, int b){
-		boolean next= false;
-		
-		return next;
-	}
+	
 }
