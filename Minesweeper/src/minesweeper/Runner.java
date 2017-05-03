@@ -13,8 +13,7 @@ public class Runner {
 		t1.start();
 		
     
-		Mines field = new Mines();
-		field.printMineField();
+		
 			
 	}
 	

@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 
 public class Screen extends JFrame implements Runnable{
 
+	private Mines field;
+	
 	//double buffering
 	private Image dbImage;
 	private Graphics dbg;
@@ -79,6 +81,9 @@ public class Screen extends JFrame implements Runnable{
 	//the default constructor, creates JFrame
 	public Screen() {
 		
+		//creates mines object
+		field = new Mines();
+		
 		//mouse listener
 		addMouseListener(new Mouse());
 		
@@ -96,7 +101,23 @@ public class Screen extends JFrame implements Runnable{
 	//printing stuff to the screen
 	public void paintComponent(Graphics g) {
 		
-		g.drawString("Test string", 100, 100);
+		for (int r = 0; r < this.field.tiles.length; r++) {
+			
+			for (int c = 0; c < this.field.tiles[0].length; c++) {
+				
+				Tile item = this.field.tiles[r][c];
+				if (item.getIsHidden()) {
+					g.fillRect(100 + r * 10, 100 + c * 10, 10, 10);
+				}
+				else {
+					
+				}
+				g.drawRect(100 + r * 10, 100 + c * 10, 10, 10);
+				
+				
+			}
+			
+		}
 		repaint();
 		
 	}
