@@ -32,6 +32,17 @@ public class Screen extends JFrame implements Runnable{
 		
 	}
 	
+	//the default constructor
+	public Screen() {
+		
+		setTitle("Minesweeper");
+		setVisible(true);
+		setSize(800, 500);
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+	
 	//printing stuff to the screen
 	public void paintComponent(Graphics g) {
 		
@@ -47,16 +58,6 @@ public class Screen extends JFrame implements Runnable{
 		dbg = dbImage.getGraphics();
 		paintComponent(dbg);
 		g.drawImage(dbImage, 0, 0, this);
-		
-	}
-	
-	public Screen() {
-		
-		setTitle("Minesweeper");
-		setVisible(true);
-		setSize(800, 500);
-		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 	

@@ -10,8 +10,8 @@ public class Runner {
 		Thread t1 = new Thread(scr);
 		t1.start();
 		
-//		Mines field = new Mines();
-//		field.printMineField();
+		Mines field = new Mines();
+		field.printMineField();
 			
 	}
 	
