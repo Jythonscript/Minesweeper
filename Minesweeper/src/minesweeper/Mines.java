@@ -28,15 +28,42 @@ public class Mines {
 
 
 	}
-
+	public boolean isNextTo(int a, int b, int a2, int b2){
+		boolean next= false;
+		if (a== a2 && b== b2+1){
+			next= true;
+		}
+		else if (a== a2 && b== b2-1){
+			next= true;
+		}
+		else if (a== a2+1 && b== b2-1){
+			next= true;
+		}
+		else if (a== a2+1 && b== b2){
+			next= true;
+		}
+		else if (a== a2+1 && b== b2+1){
+			next= true;
+		}
+		else if (a== a2-1 && b== b2-1){
+			next= true;
+		}
+		else if (a== a2-1 && b== b2){
+			next= true;
+		}
+		else if (a== a2-1 && b== b2+1){
+			next= true;
+		}
+		return next;
+	}
 	// how to format input: a,b =tiles[row][col].
 	// returns int of how many bombs around
 	public int getBombs(int rowa, int cola){
 		int counter=0;
 		for (int row= 0; row<tiles.length; row++){
 			for(int col=0; col<tiles[row].length; col++){
-				if (tiles[row][col].isNextTo(rowa, cola)){
-					
+				if (isNextTo(rowa, cola, row, col)){
+					counter++;
 				}
 			}
 		}
