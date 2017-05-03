@@ -4,17 +4,26 @@ package minesweeper;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 
 public class Screen extends JFrame implements Runnable{
 
+	//double buffering
 	private Image dbImage;
 	private Graphics dbg;
 	
-	private int screenX = 800;
-	private int screenY = 500;
+	//screen dimensions variables
+	private final int SCREENX = 800, SCREENY = 500;
 	
+	//mouse x and y variables
+	private int mouseX, mouseY;
+	
+	//the thread
 	public void run() {
 		
 		try {
@@ -32,12 +41,53 @@ public class Screen extends JFrame implements Runnable{
 		
 	}
 	
-	//the default constructor
+	//mouse input
+	public class Mouse extends MouseAdapter {
+		
+		public void mousePressed(MouseEvent e) {
+			
+			mouseX = e.getX();
+			mouseY = e.getY();
+			
+			System.out.println("Mouse X: " + mouseX + " Mouse Y: " + mouseY);
+			
+		}
+		
+	}
+	
+	//key input
+	public class Keyboard extends KeyAdapter {
+		
+		public void keyPressed(KeyEvent e) {
+			
+			int key = e.getKeyCode();
+			
+			if (key == e.VK_Q) {
+				System.exit(0);
+			}
+			
+		}
+		
+		public void keyReleased(KeyEvent e) {
+			
+			int key = e.getKeyCode();
+			
+		}
+		
+	}
+	
+	//the default constructor, creates JFrame
 	public Screen() {
+		
+		//mouse listener
+		addMouseListener(new Mouse());
+		
+		//key listener
+		addKeyListener(new Keyboard());
 		
 		setTitle("Minesweeper");
 		setVisible(true);
-		setSize(800, 500);
+		setSize(SCREENX, SCREENY);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
