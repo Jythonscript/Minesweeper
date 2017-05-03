@@ -23,6 +23,8 @@ public class Tile {
 		this.num = 0;
 	}
 	
+
+	
 	//un-hides a tile
 	public void show() {
 		this.isHidden = false;

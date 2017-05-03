@@ -43,6 +43,11 @@ public class Mines {
 
 
 	}
+	public void select(int r, int c){
+		tiles[r][c].show();
+		boom();
+		
+	}
 	
 	
 	
@@ -52,12 +57,15 @@ public class Mines {
 		for(int r = 0;r<tiles.length;r++){
 			for(int c = 0;c<tiles.length;c++){
 				boolean get = tiles[r][c].getIsHidden();
-				if(get == false){
+				Tile compare =  tiles[r][c];
+				if(get == false ){
 					r = -1;
 					c = -1;
-					off = 0;
+					off = 1;
 				}
-				
+				if(off == 1){
+				compare.show();
+				}
 				
 			}
 		}
