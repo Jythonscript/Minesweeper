@@ -41,6 +41,8 @@ public class Mines {
 			}
 		}
 		return counter;
+		
+		
 	}
 	//Prints minefield of bomb status 
 	public void printMineField(){
