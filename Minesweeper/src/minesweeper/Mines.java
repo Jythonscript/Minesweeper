@@ -3,7 +3,7 @@ package minesweeper;
 //The 2d grid of
 public class Mines {
 
-	private Tile[][] tiles;
+	public Tile[][] tiles;
 	//public Tile(boolean h, boolean m, int n){
 	//0 = open 9 == mine, 1= 1 mine nearby, 2 = 2 mines nearby ...
 	//Randomly assigns the tiles in a 2d grid a value of bomb or not.	
@@ -18,7 +18,7 @@ public class Mines {
 				//Randomly assigns tile as mine or not mine
 				int ran = ((int)(Math.random() * 4 + 1));
 				if(ran == 1){
-					tiles[r][c] = new Tile(true,false,9);
+					tiles[r][c] = new Tile(false,false,9);
 				}
 				else{
 					tiles[r][c] = new Tile(true,true,0);
