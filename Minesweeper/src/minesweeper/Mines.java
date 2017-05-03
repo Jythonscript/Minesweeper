@@ -44,7 +44,6 @@ public class Mines {
 	}
 	//Prints minefield of bomb status 
 	public void printMineField(){
-
 		for(int r = 0;r<20;r++){
 
 			for(int c = 0;c<20;c++){
@@ -58,5 +57,5 @@ public class Mines {
 
 	}
 
-
+// WORK!
 }
