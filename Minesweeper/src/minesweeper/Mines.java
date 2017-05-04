@@ -62,7 +62,7 @@ public class Mines {
 		for (int row= 0; row<tiles.length; row++){
 			for(int col=0; col<tiles[row].length; col++){
 				if (isNextTo(rowa, cola, row, col)){
-					if (!(tiles[row][col].getIsMine())){
+					if ((tiles[row][col].getIsMine())){
 					counter++;
 					}
 				}
