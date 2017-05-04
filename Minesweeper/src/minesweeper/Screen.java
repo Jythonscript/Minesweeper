@@ -130,12 +130,13 @@ public class Screen extends JFrame implements Runnable{
 				
 				Tile item = this.field.tiles[r][c];
 				g.setColor(Color.black);
-				if (item.getIsMine()) {
+				if (item.getIsMine() && item.getIsHidden()) {
 					g.setColor(Color.red);
 					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
 					g.setColor(Color.black);
 					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
 				}
+				//
 				else {
 					
 					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
