@@ -125,38 +125,32 @@ public class Mines {
 	public void clearMine(Tile ne){
 	ne.isMine = false;
 	}
-	public void clearArea(int row, int col){
+	public void clearArea(int rowa, int cola){
 		
 		
-		for(int r = 0; r < tiles.length;r++){
-			for(int c = 0;c < tiles.length;c++){
-				
-				if(row == 0 && col == 0){
-					clearMine(tiles[row + 1][col]);
-					clearMine(tiles[row][col+1]);
-					clearMine(tiles[row+1][col+1]);
-					clearMine(tiles[row][col]);
+		
+			clearMine(tiles[rowa][cola]);
+			for (int r= 0; r<tiles.length; r++){
+				for(int c=0; c<tiles[r].length; c++){
+					if (isNextTo(rowa, cola, r, c)){
+						clearMine(tiles[r][c]);
+					
+						
+						
+					}
 				}
-				else if(row == 0 && col != 0 && col != tiles[0].length){
-					clearMine(tiles[row + 1][col]);
-					clearMine(tiles[row][col+1]);
-					clearMine(tiles[row+1][col+1]);
-					clearMine(tiles[row][col]);
-					clearMine(tiles[row+1][col-1]);
-					clearMine(tiles[row][col-1]);
-				}
-				
-				
-			 
-				
-				
 			}
+			 			
+				
+				
+			
 		}
+	
+	
 		
 		
-		
-		
-	}
+	
 //g5y3rqufweahasuh
 // WORK!
+
 }
