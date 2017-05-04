@@ -126,9 +126,7 @@ public class Mines {
 	ne.isMine = false;
 	}
 	public void clearArea(int rowa, int cola){
-		
-		
-		
+						
 			clearMine(tiles[rowa][cola]);
 			for (int r= 0; r<tiles.length; r++){
 				for(int c=0; c<tiles[r].length; c++){

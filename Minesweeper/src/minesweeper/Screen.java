@@ -18,17 +18,39 @@ public class Screen extends JFrame implements Runnable{
 	//constant for the block width
 	private final int BLOCKWIDTH = 15;
 	
+	//screen dimensions variables
+	private final int SCREENX = 800, SCREENY = 500;
+	
+	int minesX = 50;
+	int minesY = 25;
+	
 	//double buffering
 	private Image dbImage;
 	private Graphics dbg;
 	
-	//screen dimensions variables
-	private final int SCREENX = 800, SCREENY = 500;
 	
 	//mouse x and y variables
 	private int mouseX = 0, mouseY = 0;
 	
-	//block x and y variables
+	//the default constructor, creates JFrame
+	public Screen() {
+		
+		//creates mines object
+		field = new Mines(minesX, minesY);
+		
+		//mouse listener
+		addMouseListener(new Mouse());
+		
+		//key listener
+		addKeyListener(new Keyboard());
+		
+		setTitle("Minesweeper");
+		setVisible(true);
+		setSize(SCREENX, SCREENY);
+		setResizable(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
 	
 	private static int count = 0;
 	//the thread
@@ -77,6 +99,7 @@ public class Screen extends JFrame implements Runnable{
 				blockY = 0;
 			}
 			
+
 			count++;
 			if(count == 1){
 				field.clearArea(blockX,blockY);
@@ -84,6 +107,10 @@ public class Screen extends JFrame implements Runnable{
 			
 			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
 			System.out.println("Adjacent blocks: " + field.getBombs(blockX, blockY));
+
+//			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
+//			System.out.println("Adjacent bombs: " + field.getBombs(blockX, blockY));
+
 			
 		}
 		
@@ -110,26 +137,8 @@ public class Screen extends JFrame implements Runnable{
 		
 	}
 	
-	//the default constructor, creates JFrame
-	public Screen() {
-		
-		//creates mines object
-		field = new Mines(20, 25);
-		
-		//mouse listener
-		addMouseListener(new Mouse());
-		
-		//key listener
-		addKeyListener(new Keyboard());
-		
-		setTitle("Minesweeper");
-		setVisible(true);
-		setSize(SCREENX, SCREENY);
-		setResizable(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-	}
+	
+
 	
 	//printing stuff to the screen
 	public void paintComponent(Graphics g) {
@@ -150,12 +159,15 @@ public class Screen extends JFrame implements Runnable{
 				else {
 					
 					g.drawRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
+					g.drawString("" + this.field.getBombs(r, c), (r * BLOCKWIDTH) + 18, (c * BLOCKWIDTH) + 43);
 				}
 				
 				
 			}
 			
 		}
+		
+		g.drawString("X: " + (mouseX - 18) / BLOCKWIDTH + " Y: " + (mouseY - 34) / BLOCKWIDTH, 250, SCREENY - 50);
 		
 		g.drawString("Mouse X: " + mouseX + " Mouse Y: " + mouseY, 20, SCREENY - 50);
 		
