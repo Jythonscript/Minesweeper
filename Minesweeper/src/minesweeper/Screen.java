@@ -15,6 +15,9 @@ public class Screen extends JFrame implements Runnable{
 
 	private Mines field;
 	
+	//constant for the block width
+	private final int BLOCKWIDTH = 15;
+	
 	//double buffering
 	private Image dbImage;
 	private Graphics dbg;
@@ -55,8 +58,8 @@ public class Screen extends JFrame implements Runnable{
 			
 //			System.out.println("Mouse X: " + mouseX + " Mouse Y: " + mouseY);
 			
-			int blockX = (mouseX - 18) / 10;
-			int blockY = (mouseY - 34) / 10;
+			int blockX = (mouseX - 18) / BLOCKWIDTH;
+			int blockY = (mouseY - 34) / BLOCKWIDTH;
 			
 			//prevents array index out of bounds
 			if (blockX > field.tiles.length) {
@@ -115,7 +118,7 @@ public class Screen extends JFrame implements Runnable{
 		setTitle("Minesweeper");
 		setVisible(true);
 		setSize(SCREENX, SCREENY);
-		setResizable(false);
+		setResizable(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
@@ -132,14 +135,14 @@ public class Screen extends JFrame implements Runnable{
 				g.setColor(Color.black);
 				if (item.getIsMine() && item.getIsHidden()) {
 					g.setColor(Color.red);
-					g.fillRect(15 + r * 10, 30 + c * 10, 10, 10);
+					g.fillRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
 					g.setColor(Color.black);
-					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+					g.drawRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
 				}
 				//
 				else {
 					
-					g.drawRect(15 + r * 10, 30 + c * 10, 10, 10);
+					g.drawRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
 				}
 				
 				
@@ -147,7 +150,7 @@ public class Screen extends JFrame implements Runnable{
 			
 		}
 		
-		g.drawString("Mouse X: " + mouseX + " Mouse Y: " + mouseY, 20, SCREENY - 100);
+		g.drawString("Mouse X: " + mouseX + " Mouse Y: " + mouseY, 20, SCREENY - 50);
 		
 		repaint();
 		
