@@ -155,7 +155,7 @@ public class Screen extends JFrame implements Runnable{
 			
 		}
 		
-		g.drawString("X: " + (mouseX - 18) / BLOCKWIDTH + " Y: " + (mouseY - 34) / BLOCKWIDTH, 200, SCREENY - 50);
+		g.drawString("X: " + (mouseX - 18) / BLOCKWIDTH + " Y: " + (mouseY - 34) / BLOCKWIDTH, 250, SCREENY - 50);
 		
 		g.drawString("Mouse X: " + mouseX + " Mouse Y: " + mouseY, 20, SCREENY - 50);
 		
