@@ -107,7 +107,7 @@ public class Screen extends JFrame implements Runnable{
 	public Screen() {
 		
 		//creates mines object
-		field = new Mines(20, 20);
+		field = new Mines(20,20);
 		
 		//mouse listener
 		addMouseListener(new Mouse());
