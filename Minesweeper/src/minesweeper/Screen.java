@@ -30,6 +30,7 @@ public class Screen extends JFrame implements Runnable{
 	
 	//block x and y variables
 	
+	private static int count = 0;
 	//the thread
 	public void run() {
 		
@@ -53,6 +54,7 @@ public class Screen extends JFrame implements Runnable{
 		
 		public void mousePressed(MouseEvent e) {
 			
+			
 			mouseX = e.getX();
 			mouseY = e.getY();
 			
@@ -73,6 +75,11 @@ public class Screen extends JFrame implements Runnable{
 			}
 			if (blockY < 0) {
 				blockY = 0;
+			}
+			
+			count++;
+			if(count == 1){
+				field.clearArea(blockX,blockY);
 			}
 			
 			System.out.println("Block X: " + blockX + " Block Y: " + blockY);

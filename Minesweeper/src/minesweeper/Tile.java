@@ -5,7 +5,7 @@ public class Tile {
 	
 	//fields
 	private boolean isHidden;
-	private boolean isMine;
+	public boolean isMine;
 	private int num;
 	
 	
