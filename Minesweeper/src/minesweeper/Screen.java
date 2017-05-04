@@ -59,11 +59,11 @@ public class Screen extends JFrame implements Runnable{
 			int blockY = (mouseY - 34) / 10;
 			
 			//prevents array index out of bounds
-			if (blockX > field.tiles[0].length) {
-				blockX = field.tiles[0].length - 1;
+			if (blockX > field.tiles.length) {
+				blockX = field.tiles.length - 1;
 			}
-			if (blockY > field.tiles.length) {
-				blockY = field.tiles.length - 1;
+			if (blockY > field.tiles[0].length) {
+				blockY = field.tiles[0].length - 1;
 			}
 			if (blockX < 0) {
 				blockX = 0;
