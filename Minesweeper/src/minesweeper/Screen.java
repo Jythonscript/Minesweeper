@@ -97,8 +97,8 @@ public class Screen extends JFrame implements Runnable{
 				blockY = 0;
 			}
 			
-			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
-			System.out.println("Adjacent bombs: " + field.getBombs(blockX, blockY));
+//			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
+//			System.out.println("Adjacent bombs: " + field.getBombs(blockX, blockY));
 			
 		}
 		
@@ -154,6 +154,8 @@ public class Screen extends JFrame implements Runnable{
 			}
 			
 		}
+		
+		g.drawString("X: " + (mouseX - 18) / BLOCKWIDTH + " Y: " + (mouseY - 34) / BLOCKWIDTH, 200, SCREENY - 50);
 		
 		g.drawString("Mouse X: " + mouseX + " Mouse Y: " + mouseY, 20, SCREENY - 50);
 		
