@@ -98,7 +98,7 @@ public class Screen extends JFrame implements Runnable{
 			}
 			
 			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
-			System.out.println("Adjacent blocks: " + field.getBombs(blockX, blockY));
+			System.out.println("Adjacent bombs: " + field.getBombs(blockX, blockY));
 			
 		}
 		
@@ -125,6 +125,8 @@ public class Screen extends JFrame implements Runnable{
 		
 	}
 	
+	
+
 	
 	//printing stuff to the screen
 	public void paintComponent(Graphics g) {
