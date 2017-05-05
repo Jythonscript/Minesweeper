@@ -124,26 +124,70 @@ public class Mines {
 	}
 
 	public void clearMine(Tile ne){
-	ne.isMine = false;
+		ne.isMine = false;
 	}
-	public void clearArea(int rowa, int cola){
-						
-			clearMine(tiles[rowa][cola]);
-			for (int r= 0; r<tiles.length; r++){
-				for(int c=0; c<tiles[r].length; c++){
-					if (isNextTo(rowa, cola, r, c)){
-						clearMine(tiles[r][c]);
-						tiles[r][c].show();
-						
-						
-					}
+	
+	public void updateFromPoint(int row, int col) {
+		
+		tiles[row][col].show();
+		
+		//clears 3 by 3 area
+		if (getBombs(row, col) != 0) {
+			return;
+		}
+		for (int r = 0; r < tiles.length; r++){
+			
+			for(int c = 0; c < tiles[0].length; c++){
+				
+				if (isNextTo(row, col, r, c)){
+//					clearMine(tiles[r][c]);
+					tiles[r][c].show();
 				}
 			}
-			 			
+		}
+		
+		for (int r = 0; r < tiles.length; r++) {
+			
+			for (int c = 0; c < tiles[0].length; c++) {
 				
+				if (getBombs(r, c) == 0 && isNextTo(row, col, r, c) && !isCleared(r, c)) {
+					updateFromPoint(r, c);
+//					System.out.println("r = "  +r + " c = " +  c);
+				}
 				
+			}
+		}
+		
+	}
+	
+	public boolean isCleared(int row, int col) {
+		
+		for (int r = 0; r < tiles.length; r++) {
+			
+			for (int c = 0; c < tiles[0].length; c++) {
+				
+				if (isNextTo(r, c, row, col) && tiles[r][c].getIsHidden()) {
+					return false;
+				}
+				
+			}
 			
 		}
+		return true;
+	}
+	
+	public void clearArea(int rowa, int cola){
+						
+		clearMine(tiles[rowa][cola]);
+		for (int r= 0; r<tiles.length; r++){
+			for(int c=0; c<tiles[r].length; c++){
+				if (isNextTo(rowa, cola, r, c)){
+					clearMine(tiles[r][c]);
+					tiles[r][c].show();
+				}
+			}
+		}
+	}
 	
 	
 		

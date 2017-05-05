@@ -103,12 +103,16 @@ public class Screen extends JFrame implements Runnable {
 			if(count == 1){
 				field.clearArea(blockX,blockY);
 			}
+			if (count > 1000) {
+				count = 1000;
+			}
 //<<<<<<< HEAD
 //=======
 			field.tiles[blockX][blockY].show();
+			field.updateFromPoint(blockX, blockY);
 //			field.select(blockX, blockY);
-			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
-			System.out.println("Adjacent blocks: " + field.getBombs(blockX, blockY));
+//			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
+//			System.out.println("Adjacent blocks: " + field.getBombs(blockX, blockY));
 //>>>>>>> branch 'master' of https://github.com/Jythonscript/Minesweeper.git
 
 //			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
@@ -166,7 +170,6 @@ public class Screen extends JFrame implements Runnable {
 				}
 				//
 				else {
-					
 					g.drawRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
 					g.drawString("" + this.field.getBombs(r, c), (r * BLOCKWIDTH) + 18, (c * BLOCKWIDTH) + 43);
 				}
