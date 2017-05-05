@@ -168,7 +168,9 @@ public class Screen extends JFrame implements Runnable {
 				//
 				else {
 					g.drawRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
-					g.drawString("" + this.field.getBombs(r, c), (r * BLOCKWIDTH) + 18, (c * BLOCKWIDTH) + 43);
+					if (this.field.getBombs(r, c) != 0) {
+						g.drawString("" + this.field.getBombs(r, c), (r * BLOCKWIDTH) + 18, (c * BLOCKWIDTH) + 43);
+					}
 				}
 				
 				
