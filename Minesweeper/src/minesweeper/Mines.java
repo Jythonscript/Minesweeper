@@ -91,8 +91,8 @@ public class Mines {
 
 
 	}
-	
-	
+
+	//returns the tile at the given index
 	public Tile select(int r, int c){
 		this.tiles[r][c].show();
 		if(tiles[r][c].getIsMine()){
@@ -102,8 +102,6 @@ public class Mines {
 		return tiles[r][c];
 		
 	}
-	
-	
 	
 	// Sets off all bombs. It is called each time bomb is selected 
 	public void boom(Tile ne){
@@ -124,7 +122,7 @@ public class Mines {
 	}
 
 	public void clearMine(Tile ne){
-		ne.isMine = false;
+		ne.removeBomb();
 	}
 	
 	public void updateFromPoint(int row, int col) {
@@ -132,7 +130,7 @@ public class Mines {
 		tiles[row][col].show();
 		
 		//clears 3 by 3 area
-		if (getBombs(row, col) != 0) {
+		if (getBombs(row, col) != 0 || tiles[row][col].getIsMine()) {
 			return;
 		}
 		for (int r = 0; r < tiles.length; r++){
@@ -188,10 +186,6 @@ public class Mines {
 			}
 		}
 	}
-	
-	
-		
-		
 	
 //g5y3rqufweahasuh
 // WORK!

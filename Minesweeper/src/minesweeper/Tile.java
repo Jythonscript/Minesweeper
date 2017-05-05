@@ -5,7 +5,8 @@ public class Tile {
 	
 	//fields
 	private boolean isHidden;
-	public boolean isMine;
+	private boolean isMine;
+	
 	private int num;
 	
 	
@@ -23,7 +24,9 @@ public class Tile {
 		this.num = 0;
 	}
 	
-
+	public void removeBomb() {
+		this.isMine = false;
+	}
 	
 	//un-hides a tile
 	public void show() {

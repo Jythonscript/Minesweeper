@@ -74,8 +74,8 @@ public class Screen extends JFrame implements Runnable {
 	//mouse input
 	public class Mouse extends MouseAdapter {
 		
-		public void mousePressed(MouseEvent e) {
-			
+		public void mousePressed(MouseEvent e)  {
+		
 			mouseX = e.getX();
 			mouseY = e.getY();
 			
@@ -143,9 +143,6 @@ public class Screen extends JFrame implements Runnable {
 		}
 		
 	}
-	
-	
-
 	
 	//printing stuff to the screen
 	public void paintComponent(Graphics g) {

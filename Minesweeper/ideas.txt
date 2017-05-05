@@ -1,3 +1,2 @@
 add isFlagged property to tiles
-write method to update the game from a point, unhiding all zeros and one block out from each zero
 change the paintComponent method to only print unhidden blocks, only after the previous step
