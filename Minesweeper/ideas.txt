@@ -1,2 +1,3 @@
 add isFlagged property to tiles
-change the paintComponent method to only print unhidden blocks, only after the previous step
+add win condition
+change getbomb

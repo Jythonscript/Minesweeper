@@ -79,6 +79,11 @@ public class Screen extends JFrame implements Runnable {
 			mouseX = e.getX();
 			mouseY = e.getY();
 			
+			//handles flag placement
+			if (e.isControlDown()) {
+				
+			}
+			
 //			System.out.println("Mouse X: " + mouseX + " Mouse Y: " + mouseY);
 			
 			int blockX = (mouseX - 18) / BLOCKWIDTH;
