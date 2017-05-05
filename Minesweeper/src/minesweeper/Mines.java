@@ -120,6 +120,7 @@ public class Mines {
 			}
 		}
 		}
+		System.out.println("Game over");
 	}
 
 	public void clearMine(Tile ne){
@@ -132,7 +133,7 @@ public class Mines {
 				for(int c=0; c<tiles[r].length; c++){
 					if (isNextTo(rowa, cola, r, c)){
 						clearMine(tiles[r][c]);
-					
+						tiles[r][c].show();
 						
 						
 					}

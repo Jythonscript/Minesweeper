@@ -103,6 +103,13 @@ public class Screen extends JFrame implements Runnable {
 			if(count == 1){
 				field.clearArea(blockX,blockY);
 			}
+//<<<<<<< HEAD
+//=======
+			field.tiles[blockX][blockY].show();
+//			field.select(blockX, blockY);
+			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
+			System.out.println("Adjacent blocks: " + field.getBombs(blockX, blockY));
+//>>>>>>> branch 'master' of https://github.com/Jythonscript/Minesweeper.git
 
 //			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
 //			System.out.println("Adjacent bombs: " + field.getBombs(blockX, blockY));
@@ -145,8 +152,14 @@ public class Screen extends JFrame implements Runnable {
 				
 				Tile item = this.field.tiles[r][c];
 				g.setColor(Color.black);
-				if (item.getIsMine() && item.getIsHidden()) {
+				if (item.getIsMine() && !item.getIsHidden()) {
 					g.setColor(Color.red);
+					g.fillRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
+					g.setColor(Color.black);
+					g.drawRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
+				}
+				else if(item.getIsHidden()){
+					g.setColor(Color.gray);
 					g.fillRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
 					g.setColor(Color.black);
 					g.drawRect(15 + r * BLOCKWIDTH, 30 + c * BLOCKWIDTH, BLOCKWIDTH, BLOCKWIDTH);
