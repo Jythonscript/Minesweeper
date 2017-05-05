@@ -10,8 +10,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 
-public class Screen extends JFrame implements Runnable{
+public class Screen extends JFrame implements Runnable {
 
+	//the mines
 	private Mines field;
 	
 	//constant for the block width
@@ -75,7 +76,6 @@ public class Screen extends JFrame implements Runnable{
 		
 		public void mousePressed(MouseEvent e) {
 			
-			
 			mouseX = e.getX();
 			mouseY = e.getY();
 			
@@ -103,9 +103,6 @@ public class Screen extends JFrame implements Runnable{
 			if(count == 1){
 				field.clearArea(blockX,blockY);
 			}
-			
-			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
-			System.out.println("Adjacent blocks: " + field.getBombs(blockX, blockY));
 
 //			System.out.println("Block X: " + blockX + " Block Y: " + blockY);
 //			System.out.println("Adjacent bombs: " + field.getBombs(blockX, blockY));
